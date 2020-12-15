@@ -6,6 +6,7 @@
  */
 export const sum = (a, b) => {
   // TODO: implement here
+   return a+b
 
 }
 
@@ -19,9 +20,15 @@ export const sum = (a, b) => {
  *    callback function to the elements in the original array
  */
 export const map = (arr, callback) => {
+  let list = []
+  for(let i = 0 ; i < arr.length ; i++ ){
+    list.push(callback(arr[i],i))
+  }
+  return list
+}
+ 
   // TODO: implement here
 
-}
 
 /**
  * Returns the array containing elements that makes the given predicate true.
@@ -33,7 +40,15 @@ export const map = (arr, callback) => {
  */
 export const filter = (arr, callback) => {
   // TODO: implement here
-
+  let list = []
+  for(let i=0; i<arr.length;i++){
+     const result = callback(arr[i],i)
+    if(result){
+      list.push(arr[i])
+    }
+  }
+  return list
+ 
 }
 
 /**
@@ -53,5 +68,11 @@ export const filter = (arr, callback) => {
  */
 export const reduce = (arr, callback, initialValue) => {
   // TODO: implement here
+  let p = 0;
+  for(let i=0; i<arr.length;i++){
+   initialValue = callback(initialValue,arr[i],i)
+  
+ }
+return initialValue
 
 }
